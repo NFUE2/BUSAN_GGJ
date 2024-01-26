@@ -19,8 +19,11 @@ public class ExtraStage : StageManager
     [SerializeField, Header("난이도설정")]
     private int level;
 
-    [SerializeField]
+    [SerializeField, Header("오브젝트 최대속도")]
     private float max_speed;
+
+    [SerializeField,Header("게임이 진행되루록 올라가는 속도")]
+    private float speed_level = 1.0f;
 
     [SerializeField]
     private Transform[] tracks;
@@ -54,7 +57,7 @@ public class ExtraStage : StageManager
 
             float speed = obj.GetComponent<ObjectBase>().speed;
 
-            if (speed <= max_speed) obj.GetComponent<ObjectBase>().speed += Time.deltaTime;
+            if (speed <= max_speed) obj.GetComponent<ObjectBase>().speed += Time.deltaTime * speed_level;
             if (min_spawntime >= limit_spawntime)
             {
                 float min = Time.deltaTime * level;
