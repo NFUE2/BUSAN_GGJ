@@ -5,19 +5,18 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
-    private float width;
+    private int width;
 
     [SerializeField]
-    private float height;
+    private int height;
 
     private void Awake()
     {
-        
+        Set_Screen();
     }
 
     private void Set_Screen()
     {
-
-        //Screen.SetResolution();
+        Screen.SetResolution(width,height,true);
     }
 }
