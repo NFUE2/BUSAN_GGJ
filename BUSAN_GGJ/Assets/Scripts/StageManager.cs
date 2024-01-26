@@ -7,17 +7,17 @@ using System.Collections;
 
 public class StageManager : Singleton<StageManager>
 {
-    [SerializeField, Header("캐릭터 체력")] private int health = 10;
+    [SerializeField, Header("캐릭터 체력")] private int health = 10; 
     [SerializeField, Header("최대 시간")] private float timer;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] Animator character;
-    [SerializeField] private float speed;
+    //[SerializeField] private float speed;
     [SerializeField] private GameObject mini;
-    [SerializeField] private float bar_index;
-    [SerializeField] private float minigame_timer; //미니게임 제한시간
-    [SerializeField] private int minidamage; //미니게임 데미지
+    [SerializeField,Header("스페이스바 클릭시 오르는 양")] private float bar_index;
+    [SerializeField, Header("미니게임 제한시간")] private float minigame_timer; //미니게임 제한시간
+    [SerializeField, Header("미니게임 데미지")] private int minidamage; //미니게임 데미지
     [SerializeField] private bool minigame = false; //미니게임 실행여부
-    [SerializeField] private float[] minigame_time; //미니게임 실행 시간
+    [SerializeField, Header("미니게임 시작 시간")] private float[] minigame_time; //미니게임 실행 시간
     [SerializeField] private float fivertime;
     [SerializeField] private float fiverspeed;
     [SerializeField] private GameObject objectlist;
