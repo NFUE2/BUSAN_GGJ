@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.Audio;
 
 
 public class StageManager : Singleton<StageManager>
@@ -20,6 +21,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField, Header("미니게임 시작 시간")] private float[] minigame_time; //미니게임 실행 시간
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject countdown_txt;
+    [SerializeField] private AudioSource audio;
 
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
@@ -172,6 +174,7 @@ public class StageManager : Singleton<StageManager>
 
         yield return new WaitForSecondsRealtime(0.5f);
         Resume();
+        audio.Play();
     }
     //public void Fail_Check()
     //{
