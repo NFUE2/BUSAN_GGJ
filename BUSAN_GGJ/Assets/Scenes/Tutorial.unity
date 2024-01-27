@@ -2960,21 +2960,15 @@ MonoBehaviour:
   timer: 90
   character: {fileID: 9145587860290117765}
   slider: {fileID: 4760536704234560594}
+  heart: {fileID: 0}
   object_field: {fileID: 9145587860060584882}
   alram: {fileID: 9145587861404437350}
   mini_obj: {fileID: 6302429201271060141, guid: 9f9cfbed0f3d1b0469d03d7a10a7cd1e, type: 3}
   mini_object_index: 8
-  minigame_timer: 3
+  minigame_timer: 100
   minidamage: 3
   minigame: 0
-  minigame_time:
-  - 10
-  - 18
-  - 25
-  - 30
-  - 40
-  - 45
-  - 55
+  minigame_time: []
   cam: {fileID: 9145587861417083523}
   countdown_txt: {fileID: 9145587861554948781}
   audio: {fileID: 9145587860791234391}

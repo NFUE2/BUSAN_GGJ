@@ -130,9 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 534337401, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
+    - target: {fileID: 449270638, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4394234902142996175, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -161,6 +161,10 @@ PrefabInstance:
     - target: {fileID: 4394234903261636609, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_Name
       value: StageManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636609, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_RootOrder
@@ -207,9 +211,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-      propertyPath: timer
-      value: 30
+      propertyPath: mini_obj.Array.size
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: mini_obj.Array.data[0]
+      value: 
+      objectReference: {fileID: 6302429201271060141, guid: eb5b37993d4c1494b9f16c6a86109b3e, type: 3}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: mini_obj.Array.data[1]
+      value: 
+      objectReference: {fileID: 6302429201271060141, guid: 77f2f18af2b89924ea53c1c14f5ff6cf, type: 3}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: mini_obj.Array.data[2]
+      value: 
+      objectReference: {fileID: 6302429201271060141, guid: fb8b9445b35727e40a35c97a69120bf1, type: 3}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: mini_obj.Array.data[3]
+      value: 
+      objectReference: {fileID: 6302429201271060141, guid: 9f9cfbed0f3d1b0469d03d7a10a7cd1e, type: 3}
     - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -220,10 +240,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7092388441215870436, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

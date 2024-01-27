@@ -20,7 +20,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private Animator heart;
     [SerializeField] private Transform object_field;
     [SerializeField] private GameObject alram;
-    [SerializeField] private GameObject mini_obj;
+    [SerializeField] private GameObject[] mini_obj;
     [SerializeField] private int mini_object_index;
     [SerializeField, Header("미니게임 제한시간")] private float minigame_timer; //미니게임 제한시간
     [SerializeField, Header("미니게임 데미지")] private int minidamage; //미니게임 데미지
@@ -31,6 +31,8 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private AudioSource audio;
     [SerializeField] private GameObject ending;
     [SerializeField] private Sprite[] ending_list;
+
+    [SerializeField] UnityEvent Event;
 
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
@@ -61,14 +63,14 @@ public class StageManager : Singleton<StageManager>
         //GameStop();
         StartCoroutine(Count_Down(3));
         slider.value = slider.maxValue = timer;
+        TryGetComponent(out audio);
         //gage.value = gage.maxValue = max_value;
         //TryGetComponent(out character);
     }
 
     private void Update()
     {
-
-        if(gamestart )
+        if(gamestart)
         {
             slider.value -= Time.deltaTime;
             event_timer += Time.deltaTime;
@@ -86,6 +88,7 @@ public class StageManager : Singleton<StageManager>
             return;
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape)) Event?.Invoke();
 
 
         //if(!fiver && event_timer >= fivertime)
@@ -98,6 +101,7 @@ public class StageManager : Singleton<StageManager>
 
         if (minigame_num < minigame_time.Length && minigame_time[minigame_num] <= event_timer)
         {
+            Debug.Log(event_timer);
             minigame = true;
             minigame_num++;
         }
@@ -174,7 +178,7 @@ public class StageManager : Singleton<StageManager>
     //}
     #endregion
 
-    IEnumerator Minigame()
+    protected IEnumerator Minigame()
     {
         alram.SetActive(true);
         yield return new WaitForSeconds(1);
@@ -189,11 +193,12 @@ public class StageManager : Singleton<StageManager>
 
         for(int i = 0; i < mini_object_index; i++)
         {
+            int num = Random.Range(0, 4);
             float x = Random.Range(origin.x - dx, origin.x + dx);
             float y = Random.Range(origin.y - dy, origin.y + dy);
 
             Vector2 pos = new Vector2(x,y);
-            GameObject obj = Instantiate(mini_obj,pos,Quaternion.identity);
+            GameObject obj = Instantiate(mini_obj[num],pos,Quaternion.identity);
             list.Add(obj);
         }
 
@@ -205,6 +210,7 @@ public class StageManager : Singleton<StageManager>
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 Delete_Object(list);
+
                 //list[0].SetActive(false);
                 //index++;
             }
@@ -221,13 +227,16 @@ public class StageManager : Singleton<StageManager>
             }
             yield return null;
         }
+        minigame = false;
+        game = null;
     }
 
     private void Delete_Object(List<GameObject> list)
     {
         GameObject obj = list[0];
+        obj.GetComponent<ObjectBase>().Stop();
         list.Remove(obj);
-        Destroy(obj);
+        //Destroy(obj);
     }
 
 
@@ -242,8 +251,10 @@ public class StageManager : Singleton<StageManager>
         {
             countdown_txt.SetActive(false);
             StartCoroutine(ZoomOut());
+            audio.Play();
         }
         else StartCoroutine(Count_Down(count));
+
     }
 
     IEnumerator ZoomOut()

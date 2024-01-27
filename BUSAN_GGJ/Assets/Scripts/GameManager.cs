@@ -13,6 +13,10 @@ public class GameManager : Singleton<GameManager>
     public bool[] clear_check = new bool[2];
     public bool[] album = new bool[6];
 
+    public float bgm_vol = 0.0f;
+    public float eff_vol = 0.0f;
+
+
     private void Start()
     {
         Set_Screen();

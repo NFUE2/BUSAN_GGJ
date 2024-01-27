@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: audio
       value: 
-      objectReference: {fileID: 125755447}
+      objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: timer
       value: 1
@@ -346,13 +346,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8553776216965128994, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b240178050a063c4395958c1de40669a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
---- !u!82 &125755447 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2142412452, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-  m_PrefabInstance: {fileID: 125755446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392239257
 GameObject:
   m_ObjectHideFlags: 0
