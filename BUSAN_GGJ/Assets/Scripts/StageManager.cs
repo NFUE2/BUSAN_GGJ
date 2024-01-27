@@ -34,6 +34,9 @@ public class StageManager : Singleton<StageManager>
 
     [SerializeField] UnityEvent Event;
 
+    [SerializeField] AudioClip[] clip;
+    [SerializeField] AudioSource effect_audio;
+
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
     //[SerializeField] private GameObject objectlist;
@@ -76,6 +79,8 @@ public class StageManager : Singleton<StageManager>
             event_timer += Time.deltaTime;
         }
         //text.text = timer.ToString("F1");
+
+        if (game != null) return;
 
         if(slider.value <= 0.0f)
         {
@@ -138,7 +143,11 @@ public class StageManager : Singleton<StageManager>
             float sum = health + value;
             health = sum <= 0 ? 0 : sum >= 10 ? 10 : sum;
             character.SetFloat("health", health);
-            if (value < 0) heart.SetTrigger("Dameged");
+            if (value < 0)
+            {
+                heart.SetTrigger("Dameged");
+                effect_audio.PlayOneShot(clip[1]);
+            }
         }
         get { return health; }
     }
@@ -207,9 +216,12 @@ public class StageManager : Singleton<StageManager>
 
         while(list.Count > 0)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            bool iterable = true;
+            if(Input.GetKeyDown(KeyCode.Space) && iterable)
             {
                 Delete_Object(list);
+
+                iterable = false;
 
                 //list[0].SetActive(false);
                 //index++;
@@ -234,9 +246,11 @@ public class StageManager : Singleton<StageManager>
     private void Delete_Object(List<GameObject> list)
     {
         GameObject obj = list[0];
-        obj.GetComponent<ObjectBase>().Stop();
+        effect_audio.PlayOneShot(clip[0]);
+        //obj.GetComponent<ObjectBase>().Sound();
+        //obj.GetComponent<ObjectBase>().Stop();
         list.Remove(obj);
-        //Destroy(obj);
+        Destroy(obj);
     }
 
 

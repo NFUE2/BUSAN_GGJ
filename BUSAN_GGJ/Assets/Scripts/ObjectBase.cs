@@ -34,7 +34,7 @@ public class ObjectBase : MonoBehaviour, IPointerClickHandler
         if(!destroy) transform.position += Vector3.right * speed * Time.deltaTime;
     }
 
-    private void Sound()
+    public void Sound()
     {
         audio.PlayOneShot(audio.clip);
     }
