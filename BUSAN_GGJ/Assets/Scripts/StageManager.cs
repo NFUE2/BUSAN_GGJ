@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Audio;
 
 
@@ -14,8 +15,13 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] Animator character;
     [SerializeField] Slider slider;
     //[SerializeField] private float speed; 
-    [SerializeField] private GameObject mini;
-    [SerializeField,Header("스페이스바 클릭시 오르는 양")] private float bar_index;
+    //[SerializeField] private GameObject mini;
+    //[SerializeField,Header("스페이스바 클릭시 오르는 양")] private float bar_index;
+
+    [SerializeField] private Transform object_field;
+    [SerializeField] private GameObject alram;
+    [SerializeField] private GameObject mini_obj;
+    [SerializeField] private int mini_object_index;
     [SerializeField, Header("미니게임 제한시간")] private float minigame_timer; //미니게임 제한시간
     [SerializeField, Header("미니게임 데미지")] private int minidamage; //미니게임 데미지
     [SerializeField] private bool minigame = false; //미니게임 실행여부
@@ -29,7 +35,6 @@ public class StageManager : Singleton<StageManager>
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
     //[SerializeField] private GameObject objectlist;
-
 
     Coroutine game = null;
     int minigame_num = 0;
@@ -62,8 +67,6 @@ public class StageManager : Singleton<StageManager>
             slider.value -= Time.deltaTime;
             event_timer += Time.deltaTime;
         }
-
-        
         //text.text = timer.ToString("F1");
 
         if(slider.value <= 0.0f)
@@ -77,6 +80,7 @@ public class StageManager : Singleton<StageManager>
             }
             return;
         }
+
 
 
         //if(!fiver && event_timer >= fivertime)
@@ -93,8 +97,8 @@ public class StageManager : Singleton<StageManager>
             minigame_num++;
         }
 
-        if(minigame)
-            if(game == null)
+        if (minigame)
+            if (game == null)
             {
                 mini_timer = minigame_timer;
                 game = StartCoroutine(Minigame());
@@ -104,7 +108,7 @@ public class StageManager : Singleton<StageManager>
         //gage.value -= Time.deltaTime * time_speed; //게이지가 점점 줄어듬
     }
 
-    
+
 
     public void GameStop()
     {
@@ -129,36 +133,87 @@ public class StageManager : Singleton<StageManager>
         get { return health; }
     }
 
+
+    #region old
+    //IEnumerator Minigame()
+    //{
+    //    mini.SetActive(true);
+    //    Slider minigame_bar = mini.GetComponentInChildren<Slider>();
+    //    minigame_bar.value = 0.0f;
+
+    //    while (minigame_bar.value < 1)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Space))
+    //            minigame_bar.value += bar_index;
+
+    //        mini_timer -= Time.unscaledDeltaTime;
+
+    //        if(mini_timer <= 0)
+    //        {
+    //            HP = -minidamage;
+    //            MinigameEnd();
+    //        }
+    //        yield return null;
+    //    }
+    //    MinigameEnd();
+    //}
+
+    //private void MinigameEnd()
+    //{
+    //    mini.SetActive(false);
+    //    minigame = false;
+    //    Resume();
+    //    game = null;
+    //    StopAllCoroutines();
+    //}
+    #endregion
+
     IEnumerator Minigame()
     {
-        mini.SetActive(true);
-        Slider minigame_bar = mini.GetComponentInChildren<Slider>();
-        minigame_bar.value = 0.0f;
+        alram.SetActive(true);
+        yield return new WaitForSeconds(1);
+        alram.SetActive(false);
 
-        while (minigame_bar.value < 1)
+        List<GameObject> list = new List<GameObject>();
+
+        float dx = object_field.localScale.x / 2;
+        float dy = object_field.localScale.y / 2;
+
+        Vector2 origin = new Vector2(object_field.position.x,object_field.position.y);
+
+        for(int i = 0; i < mini_object_index; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                minigame_bar.value += bar_index;
+            float x = Random.Range(origin.x - dx, origin.x + dx);
+            float y = Random.Range(origin.y - dy, origin.y + dy);
 
-            mini_timer -= Time.unscaledDeltaTime;
+            Vector2 pos = new Vector2(x,y);
+            GameObject obj = Instantiate(mini_obj,pos,Quaternion.identity);
+            list.Add(obj);
+        }
 
-            if(mini_timer <= 0)
+        //int index = 0;
+        float limit_time = minigame_timer;
+
+        while(list.Count > 0)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
             {
-                HP = -minidamage;
-                MinigameEnd();
+                GameObject obj = list[0];
+                list.Remove(obj);
+                Destroy(obj);
+                //list[0].SetActive(false);
+                //index++;
+            }
+
+            limit_time -= Time.deltaTime;
+
+            if(limit_time <= 0)
+            {
+                HP = minidamage;
+                break;
             }
             yield return null;
         }
-        MinigameEnd();
-    }
-
-    private void MinigameEnd()
-    {
-        mini.SetActive(false);
-        minigame = false;
-        Resume();
-        game = null;
-        StopAllCoroutines();
     }
 
     IEnumerator Count_Down(int count)

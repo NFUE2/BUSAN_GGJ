@@ -162,6 +162,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4394234902142996175, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234902142996175, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4394234902716018492, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -289,6 +297,18 @@ PrefabInstance:
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[4]
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254643737545815478, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.y
