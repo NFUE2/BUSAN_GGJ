@@ -63,6 +63,7 @@ public class StageManager : Singleton<StageManager>
 
     protected virtual void Start()
     {
+        Time.timeScale = 1.0f;
         //GameStop();
         StartCoroutine(Count_Down(3));
         slider.value = slider.maxValue = timer;
