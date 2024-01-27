@@ -142,6 +142,22 @@ PrefabInstance:
       propertyPath: damage_obj
       value: 
       objectReference: {fileID: 4227869351401760986, guid: 80dbf0284032d0f4dad691505dc89173, type: 3}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: level_list.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: level_list.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: level_list.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: level_list.Array.data[5]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2142412452, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -251,12 +267,16 @@ PrefabInstance:
       value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minidamage
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: ending_list.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.size
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: ending_list.Array.data[0]
@@ -284,23 +304,55 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 46687b4c562b90643b76e03c6e1f4945, type: 3}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[0]
-      value: 20
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[1]
-      value: 35
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[2]
-      value: 45
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[3]
-      value: 60
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: minigame_time.Array.data[4]
-      value: 75
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[5]
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[6]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[7]
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[8]
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[9]
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[10]
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[11]
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[12]
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903286178672, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.x
