@@ -17,7 +17,7 @@ public class StageManager : Singleton<StageManager>
     //[SerializeField] private float speed; 
     //[SerializeField] private GameObject mini;
     //[SerializeField,Header("스페이스바 클릭시 오르는 양")] private float bar_index;
-
+    [SerializeField] private Animator heart;
     [SerializeField] private Transform object_field;
     [SerializeField] private GameObject alram;
     [SerializeField] private GameObject mini_obj;
@@ -67,6 +67,7 @@ public class StageManager : Singleton<StageManager>
 
     private void Update()
     {
+
         if(gamestart )
         {
             slider.value -= Time.deltaTime;
@@ -134,6 +135,7 @@ public class StageManager : Singleton<StageManager>
             float sum = health + value;
             health = sum <= 0 ? 0 : sum >= 10 ? 10 : sum;
             character.SetFloat("health", health);
+            if (value < 0) heart.SetTrigger("Dameged");
         }
         get { return health; }
     }
