@@ -79,11 +79,10 @@ public class StageManager : Singleton<StageManager>
         {
             gamestart = false;
             GameStop();
+            StopAllCoroutines();
 
             if(game == null)
-            {
                 game = StartCoroutine(Ending());
-            }
             return;
         }
 
@@ -215,7 +214,6 @@ public class StageManager : Singleton<StageManager>
             if(limit_time <= 0)
             {
                 HP = minidamage;
-                Debug.Log("타임 오버");
                 while(list.Count > 0)
                     Delete_Object(list);
 
