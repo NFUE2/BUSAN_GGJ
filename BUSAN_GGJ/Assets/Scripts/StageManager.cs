@@ -10,7 +10,8 @@ public class StageManager : Singleton<StageManager>
 {
     [SerializeField, Header("캐릭터 체력")] private float health = 10;
     [SerializeField, Header("최대 시간")] private float timer;
-    [SerializeField] private TextMeshProUGUI text;
+    //[SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Slider slider;
     [SerializeField] Animator character;
     //[SerializeField] private float speed; 
     [SerializeField] private GameObject mini;
@@ -49,23 +50,29 @@ public class StageManager : Singleton<StageManager>
     {
         //GameStop();
         StartCoroutine(Count_Down(3));
+        slider.value = slider.maxValue = timer;
         //gage.value = gage.maxValue = max_value;
         //TryGetComponent(out character);
     }
 
     private void Update()
     {
-        if(gamestart )
+        if(gamestart)
         {
-            timer -= Time.deltaTime;
+            slider.value -= Time.deltaTime;
             event_timer += Time.deltaTime;
         }
-        text.text = timer.ToString("F1");
+        //text.text = timer.ToString("F1");
 
-        if(timer <= 0.0f)
+        if(slider.value <= 0.0f)
         {
             gamestart = false;
-            if(game != null) game = StartCoroutine(Ending());
+            Time.timeScale = 0.0f;
+            Debug.Log(game);
+
+            if (game == null)
+                game = StartCoroutine(Ending());
+
             return;
         }
 
@@ -99,13 +106,13 @@ public class StageManager : Singleton<StageManager>
 
     public void GameStop()
     {
-        gamestart = false;
+        //gamestart = false;
         Time.timeScale = 0.0f;
     }
     public void Resume()
     {
         Time.timeScale = 1.0f;
-        gamestart = true;
+        //gamestart = true;
 
     }
 
@@ -186,19 +193,33 @@ public class StageManager : Singleton<StageManager>
         }
 
         //yield return new WaitForSecondsRealtime(0.5f);
-        Resume();
-        //audio.Play();
+        gamestart = true;
+        Time.timeScale = 1.0f;
+        audio.Play();
+        //Resume();
     }
 
     IEnumerator Ending()
     {
-        if(HP <= 3)
-            ending.GetComponentInChildren<Image>().sprite = ending_list[0];
-        else if(HP <= 8)
-            ending.GetComponentInChildren<Image>().sprite = ending_list[1];
-        else
-            ending.GetComponentInChildren<Image>().sprite = ending_list[2];
+        int num = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Hard" ? 3 : 0;
+        ending.SetActive(true);
 
+        if (HP <= 3)
+        {
+            ending.GetComponentInChildren<Image>().sprite = ending_list[0];
+            GameManager.Instance.album[0 + num] = true;
+        }
+        else if(HP <= 8)
+        {
+            ending.GetComponentInChildren<Image>().sprite = ending_list[1];
+            GameManager.Instance.album[1 + num] = true;
+
+        }
+        else
+        {
+            ending.GetComponentInChildren<Image>().sprite = ending_list[2];
+            GameManager.Instance.album[2 + num] = true;
+        }
 
         yield return null;
     }

@@ -94,6 +94,11 @@ public class Spawner : MonoBehaviour
                 //StartCoroutine(Heal());
             }
         }
+        else
+        {
+            StopAllCoroutines();
+            return;
+        }
 
         if (90 - fivertime <= cur_time2) fiver = true;
 
