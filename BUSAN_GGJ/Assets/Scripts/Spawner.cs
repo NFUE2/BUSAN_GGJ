@@ -84,9 +84,9 @@ public class Spawner : MonoBehaviour
     {
         cur_time2 = cur_time += Time.deltaTime;
 
-        if (90 - cur_time2 >= fivertime) fiver = true;
+        if (90 - fivertime <= cur_time2) fiver = true;
 
-        if(num2 < level[num1].Length && cur_time >= level[num1][num2] )
+        if(num2 < level[num1].Length && cur_time >= level[num1][num2])
         {
             int track = Random.Range(0, 2);
             GameObject obj = Instantiate(damage_obj, tracks[track].position,Quaternion.identity);

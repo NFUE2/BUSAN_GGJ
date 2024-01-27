@@ -18,6 +18,9 @@ public class StageManager : Singleton<StageManager>
     [SerializeField, Header("미니게임 데미지")] private int minidamage; //미니게임 데미지
     [SerializeField] private bool minigame = false; //미니게임 실행여부
     [SerializeField, Header("미니게임 시작 시간")] private float[] minigame_time; //미니게임 실행 시간
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject countdown_txt;
+
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
     //[SerializeField] private GameObject objectlist;
@@ -27,8 +30,8 @@ public class StageManager : Singleton<StageManager>
     int minigame_num = 0;
     float event_timer = 0.0f;
     float mini_timer;
-    bool fiver = false;
-    bool gamestart = true;
+    //bool fiver = false;
+    //bool gamestart = true;
 
     //[SerializeField, Header("게이지 다운 스피드")]
     //private float time_speed = 1.0f; //게이지 하락 스피드
@@ -38,13 +41,15 @@ public class StageManager : Singleton<StageManager>
 
     private void Start()
     {
+        GameStop();
+        StartCoroutine(Count_Down(3));
         //gage.value = gage.maxValue = max_value;
         //TryGetComponent(out character);
     }
 
     private void Update()
     {
-        if(gamestart) timer -= Time.unscaledDeltaTime;
+        timer -= Time.deltaTime;
         text.text = timer.ToString("F1");
 
         event_timer += Time.deltaTime;
@@ -77,13 +82,13 @@ public class StageManager : Singleton<StageManager>
 
     public void GameStop()
     {
-        gamestart = false;
+        //gamestart = false;
         Time.timeScale = 0.0f;
     }
     public void Resume()
     {
         Time.timeScale = 1.0f;
-        gamestart = true;
+        //gamestart = true;
 
     }
 
@@ -131,7 +136,43 @@ public class StageManager : Singleton<StageManager>
         StopAllCoroutines();
     }
 
+    IEnumerator Count_Down(int count)
+    {
+        yield return new WaitForSecondsRealtime(1.0f);
+        Debug.Log(1);
+        count--;
+        countdown_txt.GetComponent<TextMeshProUGUI>().text = count.ToString();
+        HP = -2;
 
+        if (count == 0)
+        {
+            countdown_txt.SetActive(false);
+            StartCoroutine(ZoomOut());
+        }
+        else StartCoroutine(Count_Down(count));
+    }
+
+    IEnumerator ZoomOut()
+    {
+        Vector3 pos = new Vector3(0, 0, -10);
+        while(true)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position,pos,Time.unscaledDeltaTime);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 5.0f, Time.unscaledDeltaTime);
+
+            if (Vector3.Distance(cam.transform.position, pos) < 0.01f)
+            {
+                cam.transform.position = pos;
+                cam.orthographicSize = 5.0f;
+                cam.orthographic = true;
+                break;
+            }
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        Resume();
+    }
     //public void Fail_Check()
     //{
     //    if(gage.value <= 0)
