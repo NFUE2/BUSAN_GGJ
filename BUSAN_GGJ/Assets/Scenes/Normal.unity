@@ -231,6 +231,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: heal_time
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1698627857, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -402,6 +406,18 @@ PrefabInstance:
     - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[2]
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5254643737545815478, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_AnchorMax.y

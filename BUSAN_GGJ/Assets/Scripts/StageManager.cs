@@ -12,7 +12,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField, Header("최대 시간")] private float timer;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] Animator character;
-    //[SerializeField] private float speed;
+    //[SerializeField] private float speed; 
     [SerializeField] private GameObject mini;
     [SerializeField,Header("스페이스바 클릭시 오르는 양")] private float bar_index;
     [SerializeField, Header("미니게임 제한시간")] private float minigame_timer; //미니게임 제한시간
@@ -34,6 +34,8 @@ public class StageManager : Singleton<StageManager>
     float mini_timer;
     //bool fiver = false;
     bool gamestart = false;
+
+    public bool read_gamestart { get { return gamestart; } }
 
     //[SerializeField, Header("게이지 다운 스피드")]
     //private float time_speed = 1.0f; //게이지 하락 스피드
@@ -141,7 +143,6 @@ public class StageManager : Singleton<StageManager>
     IEnumerator Count_Down(int count)
     {
         yield return new WaitForSeconds(1.0f);
-        Debug.Log(1);
         count--;
         countdown_txt.GetComponent<TextMeshProUGUI>().text = count.ToString();
         HP = -2;
@@ -174,7 +175,7 @@ public class StageManager : Singleton<StageManager>
 
         //yield return new WaitForSecondsRealtime(0.5f);
         Resume();
-        audio.Play();
+        //audio.Play();
     }
     //public void Fail_Check()
     //{

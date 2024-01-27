@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject damage_obj; //생성 오브젝트
     [SerializeField] private GameObject heal_obj; //생성 오브젝트
     [SerializeField] private Transform[] tracks;
-
+    [SerializeField] private float heal_time;
     #region
     [SerializeField] private float[] low_level1;
     [SerializeField] private float[] low_level2;
@@ -41,11 +41,14 @@ public class Spawner : MonoBehaviour
     [SerializeField] float speed;
     bool fiver = false;
 
+    Coroutine coroutine = null;
+
     Dictionary<int, float[]> low_level = new Dictionary<int, float[]>();
     Dictionary<int, float[]> middel_level = new Dictionary<int, float[]>();
     Dictionary<int, float[]> high_level = new Dictionary<int, float[]>();
 
     List<float[]> level = new List<float[]>();
+
 
     float cur_time = 0.0f,cur_time2;
     int num1 = 0,num2 = 0;
@@ -56,7 +59,6 @@ public class Spawner : MonoBehaviour
         Set_Level(middel_level, middle_level1, middle_level2, middle_level3, middle_level4, middle_level5);
         Set_Level(high_level, high_level1, high_level2, high_level3, high_level4, high_level5);
 
-        StartCoroutine(Heal());
 
         for(int i = 0; i < level_list.Length; i++)
         {
@@ -82,7 +84,16 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cur_time2 = cur_time += Time.deltaTime;
+        if (StageManager.Instance.read_gamestart)
+        {
+            cur_time2 = cur_time += Time.deltaTime;
+
+            if (coroutine == null)
+            {
+                coroutine = StartCoroutine(Heal());
+                //StartCoroutine(Heal());
+            }
+        }
 
         if (90 - fivertime <= cur_time2) fiver = true;
 
@@ -110,8 +121,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Heal()
     {
-        yield return new WaitForSeconds(4.5f);
-        Debug.Log(1);
+        yield return new WaitForSeconds(heal_time);
         int track = Random.Range(0, 2);
         GameObject obj = Instantiate(heal_obj, tracks[track].position, Quaternion.identity);
         StartCoroutine(Heal());

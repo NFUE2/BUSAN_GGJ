@@ -7131,13 +7131,11 @@ MonoBehaviour:
   character: {fileID: 6169657239164070753}
   mini: {fileID: 6169657240711405384}
   bar_index: 0.2
-  minigame_timer: 3
+  minigame_timer: 100
   minidamage: 4
   minigame: 0
   minigame_time:
-  - 20
-  - 50
-  - 70
+  - 40
   cam: {fileID: 6169657240151050599}
   countdown_txt: {fileID: 6169657240315126089}
   audio: {fileID: 0}

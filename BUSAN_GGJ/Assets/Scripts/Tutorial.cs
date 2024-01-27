@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tutorial : StageManager
 {
+    [SerializeField] private string[] info;
+
     // Start is called before the first frame update
     void Start()
     {
