@@ -18,18 +18,12 @@ public class ObjectBase : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) //클릭했을때 반응
     {
-        Touch();
+        Stop();
     }
 
     private void Update() //계속 우측으로감
     {
         if(!destroy) transform.position += Vector3.right * speed * Time.deltaTime;
-    }
-
-    private void Touch() //획득
-    {
-        gameObject.SetActive(false);
-        Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //데미지 또는 회복
@@ -47,7 +41,7 @@ public class ObjectBase : MonoBehaviour, IPointerClickHandler
         Destroy(gameObject);
     }
 
-    private void Stop()
+    private void Stop() //파괴
     {
         ani.SetTrigger("Destroy");
         destroy = true;
