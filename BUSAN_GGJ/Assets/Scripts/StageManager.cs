@@ -53,10 +53,13 @@ public class StageManager : Singleton<StageManager>
 
     private void Update()
     {
-        if(gamestart )timer -= Time.deltaTime;
+        if(gamestart )
+        {
+            timer -= Time.deltaTime;
+            event_timer += Time.deltaTime;
+        }
         text.text = timer.ToString("F1");
 
-        event_timer += Time.deltaTime;
         //if(!fiver && event_timer >= fivertime)
         //{
         //    fiver = true;
@@ -111,16 +114,15 @@ public class StageManager : Singleton<StageManager>
     {
         mini.SetActive(true);
         Slider minigame_bar = mini.GetComponentInChildren<Slider>();
+        minigame_bar.value = 0.0f;
 
         while (minigame_bar.value < 1)
         {
             if (Input.GetKeyDown(KeyCode.Space))
-            {
                 minigame_bar.value += bar_index;
-                yield return null;
-            }
 
             mini_timer -= Time.unscaledDeltaTime;
+
             if(mini_timer <= 0)
             {
                 HP = -minidamage;
