@@ -22,6 +22,8 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject countdown_txt;
     [SerializeField] private AudioSource audio;
+    [SerializeField] private GameObject ending;
+    [SerializeField] private Sprite[] ending_list;
 
     //[SerializeField] private float fivertime;
     //[SerializeField] private float fiverspeed;
@@ -59,6 +61,14 @@ public class StageManager : Singleton<StageManager>
             event_timer += Time.deltaTime;
         }
         text.text = timer.ToString("F1");
+
+        if(timer <= 0.0f)
+        {
+            gamestart = false;
+            if(game != null) game = StartCoroutine(Ending());
+            return;
+        }
+
 
         //if(!fiver && event_timer >= fivertime)
         //{
@@ -178,6 +188,19 @@ public class StageManager : Singleton<StageManager>
         //yield return new WaitForSecondsRealtime(0.5f);
         Resume();
         //audio.Play();
+    }
+
+    IEnumerator Ending()
+    {
+        if(HP <= 3)
+            ending.GetComponentInChildren<Image>().sprite = ending_list[0];
+        else if(HP <= 8)
+            ending.GetComponentInChildren<Image>().sprite = ending_list[1];
+        else
+            ending.GetComponentInChildren<Image>().sprite = ending_list[2];
+
+
+        yield return null;
     }
     //public void Fail_Check()
     //{

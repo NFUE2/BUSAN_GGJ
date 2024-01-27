@@ -5,18 +5,38 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
-    private int width;
+    private int width = 1920;
 
     [SerializeField]
-    private int height;
+    private int height = 1080;
 
-    private void Awake()
+    public bool[] clear_check = new bool[2];
+    public bool[] album = new bool[6];
+
+    private void Start()
     {
         Set_Screen();
+        Application.targetFrameRate = 60;
     }
 
     private void Set_Screen()
     {
-        Screen.SetResolution(width,height,true);
+        int deviceWidth = Screen.width;
+        int deviceHeight = Screen.height;
+        float aspect = (float)width / height;
+        float deviceAspect = (float)deviceWidth / deviceHeight;
+
+        Screen.SetResolution(width, (int)((float)deviceHeight / deviceWidth * width), true);
+
+        if (aspect < deviceAspect)
+        {
+            float newWidth = aspect / deviceAspect;
+            Camera.main.rect = new Rect((1.0f - newWidth) / 2.0f, 0.0f, newWidth, 1.0f);
+        }
+        else
+        {
+            float newHeight = (deviceAspect / aspect);
+            Camera.main.rect = new Rect(0.0f, (1.0f - newHeight) / 2.0f, 1.0f, newHeight);
+        }
     }
 }
