@@ -6105,6 +6105,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4c00d5c663112ad45aeafaa8e7da7426, type: 3}
   - {fileID: 21300000, guid: 4e73b0da0e90af144b158928ea9cbb08, type: 3}
   - {fileID: 21300000, guid: 52f92ff2ed53fa047b3b5606236290d7, type: 3}
+  ending_effect:
+  - {fileID: 8300000, guid: dcaace4feeb375544a50cf6bfd85f686, type: 3}
+  - {fileID: 8300000, guid: 428558f1389af204881ac09977ae00dd, type: 3}
+  - {fileID: 8300000, guid: 8a5af32257bc7b341a24646fecbe13b4, type: 3}
+  - {fileID: 8300000, guid: bf2917c331851a64bbeb6b9fa0a19ccc, type: 3}
+  - {fileID: 8300000, guid: de777b2ca08164042a8b6305bd8f9703, type: 3}
+  - {fileID: 8300000, guid: 4524633dbbb75574c971a792860ba018, type: 3}
   Event:
     m_PersistentCalls:
       m_Calls:

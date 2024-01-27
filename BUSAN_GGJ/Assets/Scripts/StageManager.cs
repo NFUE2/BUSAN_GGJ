@@ -31,7 +31,7 @@ public class StageManager : Singleton<StageManager>
     [SerializeField] private AudioSource audio;
     [SerializeField] private GameObject ending;
     [SerializeField] private Sprite[] ending_list;
-
+    [SerializeField] private AudioClip[] ending_effect;
     [SerializeField] UnityEvent Event;
 
     [SerializeField] AudioClip[] clip;
@@ -300,21 +300,26 @@ public class StageManager : Singleton<StageManager>
     {
         int num = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Hard" ? 3 : 0;
         ending.SetActive(true);
-
+        audio.Pause();
         if (HP <= 3)
         {
             ending.GetComponentInChildren<Image>().sprite = ending_list[0];
             GameManager.Instance.album[0 + num] = true;
+            effect_audio.PlayOneShot(ending_effect[0 + num]);
         }
         else if(HP <= 8)
         {
             ending.GetComponentInChildren<Image>().sprite = ending_list[1];
             GameManager.Instance.album[1 + num] = true;
+            effect_audio.PlayOneShot(ending_effect[1 + num]);
+
         }
         else
         {
             ending.GetComponentInChildren<Image>().sprite = ending_list[2];
             GameManager.Instance.album[2 + num] = true;
+            effect_audio.PlayOneShot(ending_effect[2 + num]);
+
         }
 
 
