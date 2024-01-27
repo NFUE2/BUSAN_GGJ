@@ -51,6 +51,11 @@ public class StageManager : Singleton<StageManager>
     //[SerializeField]
     //private Slider gage; //게이지
 
+    protected override void Awake()
+    {
+        Set_Instance2();
+    }
+
     protected virtual void Start()
     {
         //GameStop();
@@ -198,9 +203,7 @@ public class StageManager : Singleton<StageManager>
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                GameObject obj = list[0];
-                list.Remove(obj);
-                Destroy(obj);
+                Delete_Object(list);
                 //list[0].SetActive(false);
                 //index++;
             }
@@ -210,11 +213,23 @@ public class StageManager : Singleton<StageManager>
             if(limit_time <= 0)
             {
                 HP = minidamage;
+                Debug.Log("타임 오버");
+                while(list.Count > 0)
+                    Delete_Object(list);
+
                 break;
             }
             yield return null;
         }
     }
+
+    private void Delete_Object(List<GameObject> list)
+    {
+        GameObject obj = list[0];
+        list.Remove(obj);
+        Destroy(obj);
+    }
+
 
     IEnumerator Count_Down(int count)
     {
@@ -280,6 +295,8 @@ public class StageManager : Singleton<StageManager>
 
         yield return null;
     }
+
+   
     //public void Fail_Check()
     //{
     //    if(gage.value <= 0)

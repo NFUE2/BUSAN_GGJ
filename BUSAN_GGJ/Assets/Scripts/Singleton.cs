@@ -26,10 +26,23 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Awake()
     {
+        Set_Instance();
+    }
+
+    private void Set_Instance()
+    {
         if (instance == null)
         {
             instance = this as T;
             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    protected void Set_Instance2()
+    {
+        if (instance == null)
+        {
+            instance = this as T;
         }
     }
 }
