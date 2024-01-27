@@ -123,6 +123,99 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &125755446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: heal_obj
+      value: 
+      objectReference: {fileID: 4227869351401760986, guid: fc534dee4e75de440bfe75ba42f7e0b3, type: 3}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: damage_obj
+      value: 
+      objectReference: {fileID: 4227869351401760986, guid: 80dbf0284032d0f4dad691505dc89173, type: 3}
+    - target: {fileID: 4394234903261636609, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_Name
+      value: StageManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636612, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: bar_index
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[1]
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[2]
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[3]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[4]
+      value: 75
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
 --- !u!1 &1392239257
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using System.Collections;
 
 public class StageManager : Singleton<StageManager>
 {
-    [SerializeField, Header("캐릭터 체력")] private int health = 10; 
+    [SerializeField, Header("캐릭터 체력")] private float health = 10; 
     [SerializeField, Header("최대 시간")] private float timer;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] Animator character;
@@ -18,9 +18,9 @@ public class StageManager : Singleton<StageManager>
     [SerializeField, Header("미니게임 데미지")] private int minidamage; //미니게임 데미지
     [SerializeField] private bool minigame = false; //미니게임 실행여부
     [SerializeField, Header("미니게임 시작 시간")] private float[] minigame_time; //미니게임 실행 시간
-    [SerializeField] private float fivertime;
-    [SerializeField] private float fiverspeed;
-    [SerializeField] private GameObject objectlist;
+    //[SerializeField] private float fivertime;
+    //[SerializeField] private float fiverspeed;
+    //[SerializeField] private GameObject objectlist;
 
 
     Coroutine game = null;
@@ -87,13 +87,13 @@ public class StageManager : Singleton<StageManager>
 
     }
 
-    public int HP
+    public float HP
     {
         set
         {
-            int sum = health + value;
+            float sum = health + value;
             health = sum <= 0 ? 0 : sum >= 10 ? 10 : sum;
-            character.SetInteger("health", health);
+            character.SetFloat("health", health);
         }
         get { return health; }
     }

@@ -37,13 +37,17 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] Level_Type[] level_list;
 
+    [SerializeField] float fivertime;
+    [SerializeField] float speed;
+    bool fiver = false;
+
     Dictionary<int, float[]> low_level = new Dictionary<int, float[]>();
     Dictionary<int, float[]> middel_level = new Dictionary<int, float[]>();
     Dictionary<int, float[]> high_level = new Dictionary<int, float[]>();
 
     List<float[]> level = new List<float[]>();
 
-    float cur_time = 0.0f;
+    float cur_time = 0.0f,cur_time2;
     int num1 = 0,num2 = 0;
 
     private void Start()
@@ -78,11 +82,15 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cur_time += Time.deltaTime;
+        cur_time2 = cur_time += Time.deltaTime;
+
+        if (90 - cur_time2 >= fivertime) fiver = true;
+
         if(num2 < level[num1].Length && cur_time >= level[num1][num2] )
         {
             int track = Random.Range(0, 2);
             GameObject obj = Instantiate(damage_obj, tracks[track].position,Quaternion.identity);
+            if (fiver) obj.GetComponent<ObjectBase>().speed = speed;
             num2++;
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class ObjectBase : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] //데미지 또는 회복 수치
-    private int index;
+    private float index;
 
     public float speed;//이동 스피드
 
