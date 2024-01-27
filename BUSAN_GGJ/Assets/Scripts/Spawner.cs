@@ -94,7 +94,11 @@ public class Spawner : MonoBehaviour
                 //StartCoroutine(Heal());
             }
         }
-
+        else
+        {
+            StopAllCoroutines();
+            return;
+        }
         if (90 - fivertime <= cur_time2) fiver = true;
 
         if(num2 < level[num1].Length && cur_time >= level[num1][num2])
