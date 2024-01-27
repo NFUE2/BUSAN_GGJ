@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &783216219 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 952160364150781381, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-  m_PrefabInstance: {fileID: 2142412450}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2142412450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: creating
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: heal_obj
+      value: 
+      objectReference: {fileID: 4227869351401760986, guid: fc534dee4e75de440bfe75ba42f7e0b3, type: 3}
+    - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: damage_obj
+      value: 
+      objectReference: {fileID: 4743980818803111658, guid: 433113c4e337fac48bce96747fc071a1, type: 3}
     - target: {fileID: 4394234903261636609, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -184,8 +191,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 783216219}
+      propertyPath: timer
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: bar_index
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minidamage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[0]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[2]
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394234903261636613, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
+      propertyPath: minigame_time.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}

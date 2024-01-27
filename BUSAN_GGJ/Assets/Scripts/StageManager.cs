@@ -100,7 +100,6 @@ public class StageManager : Singleton<StageManager>
 
     IEnumerator Minigame()
     {
-        GameStop();
         mini.SetActive(true);
         Slider minigame_bar = mini.GetComponentInChildren<Slider>();
 

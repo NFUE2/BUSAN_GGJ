@@ -346,9 +346,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 50
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -1267,7 +1267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115334221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.8, y: -3, z: 0}
+  m_LocalPosition: {x: -12.28, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1604,6 +1604,205 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1484482698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484482699}
+  - component: {fileID: 1484482700}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1484482699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484482698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4394234903261636612}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484482700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484482698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ffcf0bd0088224786bedfb170b44f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creating: {fileID: 4227869351401760986, guid: 80dbf0284032d0f4dad691505dc89173, type: 3}
+  tracks:
+  - {fileID: 1735571792}
+  - {fileID: 1115334222}
+  low_level1:
+  - 1
+  - 3
+  - 4.5
+  - 6
+  - 8
+  low_level2:
+  - 0.5
+  - 2.5
+  - 4.5
+  - 7
+  - 9
+  low_level3:
+  - 1.5
+  - 3.5
+  - 5.5
+  - 6
+  - 8
+  low_level4:
+  - 1
+  - 1.5
+  - 3.5
+  - 6.5
+  - 7
+  low_level5:
+  - 2
+  - 4
+  - 4.5
+  - 6.5
+  - 8.5
+  - 9
+  middle_level1:
+  - 0
+  - 1.5
+  - 2
+  - 3.5
+  - 4.5
+  - 5.5
+  - 6
+  - 7.5
+  - 8
+  - 9
+  middle_level2:
+  - 0.5
+  - 1
+  - 1.5
+  - 2.5
+  - 3.5
+  - 4
+  - 4.5
+  - 5.5
+  - 7
+  - 8.5
+  middle_level3:
+  - 0.5
+  - 2
+  - 3.5
+  - 4
+  - 5.5
+  - 7
+  - 7.5
+  - 9
+  middle_level4:
+  - 1
+  - 1.5
+  - 2.5
+  - 3
+  - 3.5
+  - 4.5
+  - 5
+  - 6
+  - 6.5
+  - 7
+  - 8.5
+  middle_level5:
+  - 1
+  - 2.5
+  - 3
+  - 5
+  - 6.5
+  - 7
+  - 8
+  high_level1:
+  - 0
+  - 0.5
+  - 1
+  - 2
+  - 2.5
+  - 3
+  - 4
+  - 5
+  - 5.5
+  - 6
+  - 7
+  - 7.5
+  - 8
+  - 8.5
+  high_level2:
+  - 0
+  - 1.5
+  - 2
+  - 3.5
+  - 4
+  - 4.5
+  - 5.5
+  - 6
+  - 7.5
+  - 8
+  - 9
+  - 9.5
+  high_level3:
+  - 0.5
+  - 1.5
+  - 2
+  - 2.5
+  - 3.5
+  - 4.5
+  - 5.5
+  - 6
+  - 6.5
+  - 7.5
+  - 8.5
+  high_level4:
+  - 0.5
+  - 1
+  - 2
+  - 2.5
+  - 3
+  - 3.5
+  - 4.5
+  - 5
+  - 6
+  - 6.5
+  - 7
+  - 7.5
+  - 8.5
+  - 9.5
+  high_level5:
+  - 1
+  - 1.5
+  - 2.5
+  - 3
+  - 4
+  - 4.5
+  - 5.5
+  - 6.5
+  - 7.5
+  - 8
+  - 9
+  - 9.5
+  level_list: 000000000100000000000000010000000100000002000000
 --- !u!1 &1670699346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +2128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735571791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.8, y: -1.99, z: 0}
+  m_LocalPosition: {x: -12.28, y: -1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4395,6 +4594,7 @@ Transform:
   - {fileID: 1237909928}
   - {fileID: 449270641}
   - {fileID: 5946235038042342025}
+  - {fileID: 1484482699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4410,18 +4610,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff64f95de6546641baf63c8e6b57545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 3
   timer: 55
   text: {fileID: 6352836439767965997}
-  character: {fileID: 0}
-  speed: 0
+  character: {fileID: 952160364150781381}
   mini: {fileID: 962364767}
   bar_index: 0.1
-  minigame_timer: 1
+  minigame_timer: 3
   minidamage: 5
   minigame: 0
   minigame_time:
-  - 3
+  - 5
   fivertime: 0
   fiverspeed: 0
   objectlist: {fileID: 0}
