@@ -146,7 +146,7 @@ public class StageManager : Singleton<StageManager>
             if (value < 0)
             {
                 heart.SetTrigger("Dameged");
-                effect_audio.PlayOneShot(clip[1]);
+                if(gamestart) effect_audio.PlayOneShot(clip[1]);
             }
         }
         get { return health; }

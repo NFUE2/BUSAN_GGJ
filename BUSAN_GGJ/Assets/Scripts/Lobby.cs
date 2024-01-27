@@ -7,6 +7,8 @@ public class Lobby : MonoBehaviour
     [SerializeField] public static bool[] album = new bool[6];
     [SerializeField] private Button[] ending_btn;
     [SerializeField] private GameObject notion;
+    [SerializeField] private Sprite[] ending;
+    [SerializeField] private GameObject BG;
     void Start()
     {
         bool chk = album.SequenceEqual(GameManager.Instance.album);
@@ -28,5 +30,10 @@ public class Lobby : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void Review(int num)
+    {
+        BG.GetComponent<Image>().sprite = ending[num];
     }
 }
