@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: damage_obj
       value: 
-      objectReference: {fileID: 4227869351401760986, guid: 80dbf0284032d0f4dad691505dc89173, type: 3}
+      objectReference: {fileID: 4743980818803111658, guid: 433113c4e337fac48bce96747fc071a1, type: 3}
     - target: {fileID: 1484482700, guid: c0e1c2f57d582fb449729e6ecf4c869a, type: 3}
       propertyPath: level_list.Array.data[0]
       value: 2
